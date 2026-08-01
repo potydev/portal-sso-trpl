@@ -17,10 +17,27 @@ export default async function ProfilePage() {
     redirect("/");
   }
 
-  // Determine Role & NIM/NIP based on email or mock data
+  // Determine Role based on email or mock data
   const isStudent = user.email.endsWith(".stu@pnc.ac.id") || user.email.includes("student");
   const roleDisplay = isStudent ? "Mahasiswa" : "Dosen / Staff";
-  const nimNipPlaceholder = isStudent ? "190302044" : "198204122010121002";
+  
+  // Parse NIM/NIP and clean name if display name starts with digits (e.g. "250215010 Dapot Matthew Tampubolon")
+  let parsedName = user.name || "";
+  let parsedNimNip = "";
+  
+  if (user.name) {
+    const match = user.name.match(/^(\d+)\s+(.+)$/);
+    if (match) {
+      parsedNimNip = match[1]; // NIM (e.g. "250215010")
+      parsedName = match[2];    // Full Name (e.g. "Dapot Matthew Tampubolon")
+    } else {
+      // Fallback: extract prefix from email
+      const emailPrefix = user.email ? user.email.split("@")[0] : "";
+      parsedNimNip = emailPrefix.replace(".stu", "").replace(".staff", "").replace(".stud", "");
+    }
+  }
+
+  const nimNipPlaceholder = parsedNimNip || (isStudent ? "250215010" : "198204122010121002");
   const prodiDisplay = "Teknologi Rekayasa Perangkat Lunak (TRPL)";
   const jurusanDisplay = "Teknik Komputer dan Informatika";
 
@@ -65,15 +82,15 @@ export default async function ProfilePage() {
             <div className="profile-identity-card">
               <div className="profile-avatar-wrapper">
                 {user.picture ? (
-                  <img src={user.picture} alt={user.name} className="profile-avatar-large" />
+                  <img src={user.picture} alt={parsedName} className="profile-avatar-large" />
                 ) : (
                   <div className="profile-avatar-large-placeholder">
-                    {user.name ? user.name.charAt(0).toUpperCase() : "?"}
+                    {parsedName ? parsedName.charAt(0).toUpperCase() : "?"}
                   </div>
                 )}
                 <span className="role-badge">{roleDisplay}</span>
               </div>
-              <h3 className="profile-full-name">{user.name}</h3>
+              <h3 className="profile-full-name">{parsedName}</h3>
               <p className="profile-email-text">{user.email}</p>
               <div className="identity-divider"></div>
               <p className="profile-institution">Politeknik Negeri Cilacap</p>
