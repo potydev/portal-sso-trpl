@@ -558,3 +558,232 @@ html, body {
     font-size: 10.5px;
   }
 }
+
+/* ===== PROFILE PAGE STYLES ===== */
+.profile-body {
+  padding: 36px 40px !important;
+}
+
+.profile-layout {
+  display: grid;
+  grid-template-columns: 1.1fr 2fr;
+  gap: 32px;
+  align-items: start;
+}
+
+.profile-identity-card {
+  background: #ffffff;
+  border: 1px solid #e1e4e6;
+  border-radius: 8px;
+  padding: 32px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+.profile-avatar-wrapper {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+.profile-avatar-large {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #eff6ff;
+}
+
+.profile-avatar-large-placeholder {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  font-weight: 800;
+  border: 3px solid #eff6ff;
+}
+
+.role-badge {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--color-primary);
+  color: #ffffff;
+  font-size: 10px;
+  font-weight: 700;
+  padding: 4px 10px;
+  border-radius: 100px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.profile-full-name {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 4px;
+}
+
+.profile-email-text {
+  font-size: 12px;
+  color: var(--color-text-muted);
+  word-break: break-all;
+}
+
+.identity-divider {
+  width: 80%;
+  height: 1px;
+  background-color: #e1e4e6;
+  margin: 16px 0;
+}
+
+.profile-institution {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--color-primary);
+}
+
+.profile-details-pane {
+  display: flex;
+  flex-direction: column;
+}
+
+.pane-section-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 16px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border-bottom: 1px solid #e1e4e6;
+  padding-bottom: 6px;
+}
+
+.details-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 16px;
+  background: #ffffff;
+  border: 1px solid #e1e4e6;
+  border-radius: 8px;
+}
+
+.detail-icon {
+  width: 36px;
+  height: 36px;
+  border-radius: 6px;
+  background-color: #eff6ff;
+  color: var(--color-primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.detail-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.detail-label {
+  font-size: 10px;
+  color: var(--color-text-muted);
+  font-weight: 500;
+}
+
+.detail-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-top: 2px;
+}
+
+.sso-settings-box {
+  background-color: #eff6ff;
+  border: 1px solid #dbeafe;
+  border-radius: 8px;
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
+}
+
+.sso-box-header {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  flex: 1;
+}
+
+.sso-box-title {
+  font-size: 13.5px;
+  font-weight: 700;
+  color: #1e3a8a;
+}
+
+.sso-box-desc {
+  font-size: 11px;
+  color: #1e40af;
+  line-height: 1.5;
+}
+
+.btn-sso-action {
+  background-color: #1e40af;
+  color: #ffffff;
+  padding: 10px 16px;
+  font-size: 12px;
+  font-weight: 700;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.2s ease;
+  white-space: nowrap;
+}
+
+.btn-sso-action:hover {
+  background-color: #1d4ed8;
+}
+
+/* Responsive profile layout */
+@media (max-width: 768px) {
+  .profile-body {
+    padding: 24px 20px !important;
+  }
+
+  .profile-layout {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 12px;
+  }
+
+  .sso-settings-box {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 14px;
+  }
+
+  .btn-sso-action {
+    width: 100%;
+    text-align: center;
+  }
+}
+}

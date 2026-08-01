@@ -87,10 +87,10 @@ export default async function DashboardPage() {
             </div>
           </div>
           <div className="menu-header-right">
-            <button className="btn-header">
+            <a href="/profile" className="btn-header">
               <User size={14} />
               <span>Halaman Profil</span>
-            </button>
+            </a>
             <a href="/api/auth/logout" className="btn-header btn-header-logout">
               <LogOut size={14} />
               <span>Keluar</span>
