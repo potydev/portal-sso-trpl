@@ -36,6 +36,7 @@ export async function GET(request) {
       role: userinfo.roles || "user",
       nim: userinfo.nim || "-",
       prodi: userinfo.prodi || "Teknologi Rekayasa Perangkat Lunak",
+      id_token: tokenSet.id_token,
     };
 
     // Store session in cookie
