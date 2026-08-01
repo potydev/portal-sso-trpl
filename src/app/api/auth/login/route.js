@@ -52,6 +52,7 @@ export async function GET(request) {
       scope: "openid email profile",
       state,
       nonce,
+      kc_idp_hint: "google",
     });
 
     return NextResponse.redirect(authUrl);
