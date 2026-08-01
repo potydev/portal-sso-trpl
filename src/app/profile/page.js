@@ -39,7 +39,7 @@ export default async function ProfilePage() {
 
   const nimNipPlaceholder = parsedNimNip || (isStudent ? "250215010" : "198204122010121002");
   const prodiDisplay = "Teknologi Rekayasa Perangkat Lunak (TRPL)";
-  const jurusanDisplay = "Teknik Komputer dan Informatika";
+  const jurusanDisplay = "Jaringan Komputer dan Bisnis";
 
   return (
     <div className="dashboard-wrapper">
