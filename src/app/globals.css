@@ -1,0 +1,560 @@
+/* ===== CORE STYLE SYSTEM & TOKENS ===== */
+:root {
+  --color-primary: #0067bd; /* Siakad Cloud Brand Blue */
+  --color-primary-hover: #004680;
+  --color-text-main: #333333;
+  --color-text-muted: #777777;
+  --color-border: #cccccc;
+  --color-error: #dc3545;
+  --color-link: #0067bd;
+  
+  --font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --radius: 10px;
+}
+
+/* ===== RESET & BASE ===== */
+*, *::before, *::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body {
+  font-family: var(--font-family);
+  background: #f2f2f2 url('https://assets.siakadcloud.com/assets/v1/img/pattern/pat_04.png') repeat;
+  color: var(--color-text-main);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== LOGIN CARD CONTAINER ===== */
+.login-page {
+  width: 100%;
+  max-width: 1000px;
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  min-height: 100vh;
+}
+
+.form-box {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  width: 100%;
+  background: #ffffff;
+  border-radius: var(--radius);
+  box-shadow: 0 0 35px 0 rgba(154, 161, 171, 0.2);
+  overflow: hidden;
+  min-height: 600px;
+}
+
+/* ===== LEFT SIDE: UNIV IDENTITY BOX ===== */
+.univ-identity-box {
+  position: relative;
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.5)), 
+              url('https://assets.siakadcloud.com/uploads/pnc/bgaplikasi/1877.jpg?1768380723') bottom;
+  background-size: cover;
+  display: flex;
+  align-items: flex-end;
+  padding: 40px;
+}
+
+.univ-identity-content {
+  position: relative;
+  z-index: 2;
+  color: #ffffff;
+}
+
+.welcome-text {
+  color: #a3e635; /* Lime green color matching screenshot */
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.univ-name {
+  font-size: 28px;
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+/* ===== RIGHT SIDE: FORM CONTAINER ===== */
+.form-container {
+  padding: 40px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.form-wrapper {
+  width: 100%;
+  max-width: 380px;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+.campus-logo {
+  height: 90px;
+  width: 90px;
+  object-fit: contain;
+}
+
+/* Header Text */
+.form-header {
+  text-align: center;
+  margin-bottom: 24px;
+}
+
+.form-title {
+  font-size: 19px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 8px;
+}
+
+.form-subtitle {
+  font-size: 12px;
+  color: #555555;
+  line-height: 1.6;
+}
+
+.badge-new {
+  font-weight: 700;
+  color: #333;
+}
+
+/* Google Login Button */
+.btn-google {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  background: #ffffff;
+  color: #333333;
+  text-decoration: none;
+  font-size: 13px;
+  font-weight: 500;
+  padding: 10px 16px;
+  border-radius: 4px;
+  border: 1px solid #dcdcdc;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.btn-google:hover {
+  background-color: #f7f9fa;
+  border-color: #c5c5c5;
+}
+
+.google-icon {
+  width: 18px;
+  height: 18px;
+}
+
+/* Divider */
+.divider {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  color: #999999;
+  font-size: 11px;
+  margin: 20px 0;
+}
+
+.divider::before, .divider::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.divider:not(:empty)::before {
+  margin-right: 12px;
+}
+
+.divider:not(:empty)::after {
+  margin-left: 12px;
+}
+
+/* Form Fields */
+.login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.form-label {
+  font-size: 12px;
+  font-weight: 600;
+  color: #333333;
+}
+
+.required-star {
+  color: var(--color-error);
+  margin-left: 2px;
+}
+
+.input-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.form-input {
+  width: 100%;
+  border: 1px solid #dcdcdc;
+  border-radius: 4px;
+  padding: 10px 14px;
+  font-size: 13px;
+  color: #333333;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.form-input::placeholder {
+  color: #a9a9a9;
+}
+
+.form-input:focus {
+  border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(0, 103, 189, 0.1);
+}
+
+.password-toggle {
+  position: absolute;
+  right: 12px;
+  background: none;
+  border: none;
+  color: #999999;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.password-toggle:hover {
+  color: #666666;
+}
+
+.forgot-password-link {
+  align-self: flex-end;
+  font-size: 11.5px;
+  color: var(--color-link);
+  text-decoration: none;
+  font-weight: 600;
+  margin-top: 4px;
+}
+
+.forgot-password-link:hover {
+  text-decoration: underline;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: var(--color-primary);
+  color: #ffffff;
+  border: none;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease;
+  margin-top: 10px;
+}
+
+.btn-submit:hover {
+  background-color: var(--color-primary-hover);
+}
+
+/* Footer branding */
+.form-footer {
+  margin-top: 24px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.sevima-footer-logo {
+  height: 24px;
+  object-fit: contain;
+}
+
+/* ===== AFTER LOGIN: DASHBOARD PAGE ===== */
+.dashboard-wrapper {
+  background: linear-gradient(rgba(0, 0, 0, 0.05), rgba(0, 0, 0, 0.15)), 
+              url('https://assets.siakadcloud.com/uploads/pnc/bgaplikasi/1877.jpg?1768380723') center;
+  background-size: cover;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.menu-container {
+  width: 100%;
+  max-width: 960px;
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Menu Header (Corporate Blue Pattern Style) */
+.menu-header {
+  background: linear-gradient(135deg, #00365c 0%, #00508a 100%);
+  padding: 22px 32px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu-header-left {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.logo-circle {
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.logo-circle-img {
+  width: 38px;
+  height: 38px;
+  object-fit: contain;
+}
+
+.menu-header-titles {
+  display: flex;
+  flex-direction: column;
+}
+
+.menu-header-sub {
+  color: #cbd5e0;
+  font-size: 11px;
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.menu-header-main {
+  color: #ffffff;
+  font-size: 17px;
+  font-weight: 800;
+  margin-top: 2px;
+  letter-spacing: 0.5px;
+}
+
+.menu-header-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-header {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(0, 0, 0, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #ffffff;
+  font-size: 11.5px;
+  font-weight: 600;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+  text-decoration: none;
+}
+
+.btn-header:hover {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.btn-header-logout {
+  background: rgba(0, 0, 0, 0.25);
+}
+
+/* Menu Body: Modules Grid */
+.menu-body {
+  background-color: #f6f8fa;
+  padding: 36px 40px;
+}
+
+.menu-body-title {
+  font-size: 16px;
+  font-weight: 700;
+  color: #333333;
+  margin-bottom: 24px;
+  border-bottom: 2px solid #e1e4e6;
+  padding-bottom: 8px;
+}
+
+.modules-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+  gap: 20px;
+}
+
+.module-card {
+  background: #ffffff;
+  border: 1px solid #e1e4e6;
+  border-radius: 8px;
+  height: 135px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 8px;
+  text-decoration: none;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+  cursor: pointer;
+}
+
+.module-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.06);
+  border-color: var(--color-primary);
+}
+
+.module-icon-container {
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 12px;
+}
+
+.module-icon-svg {
+  transition: transform 0.2s ease;
+}
+
+.module-card:hover .module-icon-svg {
+  transform: scale(1.08);
+}
+
+.module-label {
+  font-size: 11.5px;
+  font-weight: 700;
+  color: #4a5568;
+  text-align: center;
+  line-height: 1.4;
+  padding: 0 4px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.module-card:hover .module-label {
+  color: var(--color-primary);
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 768px) {
+  html, body {
+    display: block;
+    padding: 10px;
+  }
+
+  .login-page {
+    max-width: 100%;
+    padding: 0;
+    margin: 40px 0;
+  }
+
+  .form-box {
+    grid-template-columns: 1fr;
+    min-height: auto;
+  }
+
+  .univ-identity-box {
+    min-height: 200px;
+    padding: 24px;
+  }
+
+  .univ-name {
+    font-size: 20px;
+  }
+
+  .form-container {
+    padding: 32px 24px;
+  }
+
+  .dashboard-wrapper {
+    padding: 10px;
+    align-items: flex-start;
+  }
+
+  .menu-container {
+    border-radius: 8px;
+  }
+
+  .menu-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 16px;
+    padding: 20px;
+  }
+
+  .menu-header-right {
+    width: 100%;
+    justify-content: flex-start;
+  }
+
+  .menu-body {
+    padding: 24px 20px;
+  }
+
+  .modules-grid {
+    grid-template-columns: repeat(auto-fill, minmax(110px, 1fr));
+    gap: 12px;
+  }
+
+  .module-card {
+    height: 115px;
+    padding: 10px 4px;
+  }
+
+  .module-icon-container {
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  .module-label {
+    font-size: 10.5px;
+  }
+}
