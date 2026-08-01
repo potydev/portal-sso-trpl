@@ -23,7 +23,7 @@ function LoginForm() {
           <div className="univ-identity-content">
             <span className="welcome-text">SELAMAT DATANG</span>
             <h1 className="univ-name">
-              Sistem Informasi Akademik <br />
+              Sistem Informasi Prodi TRPL <br />
               Politeknik Negeri Cilacap
             </h1>
           </div>
@@ -129,15 +129,6 @@ function LoginForm() {
 
               <button type="submit" className="btn-submit">Masuk</button>
             </form>
-
-            {/* Footer */}
-            <div className="form-footer">
-              <img
-                src="https://assets.siakadcloud.com/assets/v1/img/logo-sevima-platform-200.png"
-                alt="Powered By SEVIMA"
-                className="sevima-footer-logo"
-              />
-            </div>
           </div>
         </div>
       </div>
