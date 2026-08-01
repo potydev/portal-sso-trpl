@@ -24,7 +24,9 @@ export async function GET(request) {
       httpOnly: false, // accessible to client for greeting splits
     });
 
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    const requestUrl = new URL(request.url);
+    const baseUrl = process.env.APP_URL || requestUrl.origin;
+    return NextResponse.redirect(new URL("/dashboard", baseUrl));
   }
 
   try {
@@ -55,6 +57,8 @@ export async function GET(request) {
     return NextResponse.redirect(authUrl);
   } catch (error) {
     console.error("Login route error:", error);
-    return NextResponse.redirect(new URL("/?error=auth_failed", request.url));
+    const requestUrl = new URL(request.url);
+    const baseUrl = process.env.APP_URL || requestUrl.origin;
+    return NextResponse.redirect(new URL("/?error=auth_failed", baseUrl));
   }
 }

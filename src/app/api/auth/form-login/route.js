@@ -20,8 +20,11 @@ export async function POST(request) {
       password = body.password || "";
     }
 
+    const requestUrl = new URL(request.url);
+    const baseUrl = process.env.APP_URL || requestUrl.origin;
+
     if (!username || !password) {
-      return NextResponse.redirect(new URL("/?error=invalid_credentials", request.url));
+      return NextResponse.redirect(new URL("/?error=invalid_credentials", baseUrl));
     }
 
     // Simulate login for preview
@@ -40,9 +43,11 @@ export async function POST(request) {
       httpOnly: false, // accessible to client
     });
 
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    return NextResponse.redirect(new URL("/dashboard", baseUrl));
   } catch (error) {
     console.error("Form login error:", error);
-    return NextResponse.redirect(new URL("/?error=authentication_failed", request.url));
+    const requestUrl = new URL(request.url);
+    const baseUrl = process.env.APP_URL || requestUrl.origin;
+    return NextResponse.redirect(new URL("/?error=authentication_failed", baseUrl));
   }
 }

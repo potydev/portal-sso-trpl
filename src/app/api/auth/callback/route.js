@@ -8,7 +8,8 @@ export async function GET(request) {
   const requestUrl = new URL(request.url);
 
   if (isMockMode) {
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    const baseUrl = process.env.APP_URL || requestUrl.origin;
+    return NextResponse.redirect(new URL("/dashboard", baseUrl));
   }
 
   const oidcState = cookieStore.get("oidc_state")?.value;
@@ -49,9 +50,11 @@ export async function GET(request) {
     cookieStore.delete("oidc_state");
     cookieStore.delete("oidc_nonce");
 
-    return NextResponse.redirect(new URL("/dashboard", request.url));
+    const baseUrl = process.env.APP_URL || requestUrl.origin;
+    return NextResponse.redirect(new URL("/dashboard", baseUrl));
   } catch (error) {
     console.error("OIDC Callback Route Error:", error);
-    return NextResponse.redirect(new URL("/?error=authentication_failed", request.url));
+    const baseUrl = process.env.APP_URL || requestUrl.origin;
+    return NextResponse.redirect(new URL("/?error=authentication_failed", baseUrl));
   }
 }
