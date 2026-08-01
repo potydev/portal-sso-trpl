@@ -53,6 +53,7 @@ export async function GET(request) {
       state,
       nonce,
       kc_idp_hint: "google",
+      prompt: "select_account",
     });
 
     return NextResponse.redirect(authUrl);
